@@ -1,0 +1,35 @@
+
+import { lazy, Suspense } from 'react'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { MainLayout } from './layouts/MainLayout'
+import QuestionsPage from '../pages/questionList/QuestionsPage'
+
+
+
+export const appRouter = createBrowserRouter([
+	{
+		path: '/',
+		element: <MainLayout/>,
+		children: [
+			{
+				index: true,
+				element: (
+					<Navigate
+						to='/questions'
+						replace
+					/>
+				)
+			},
+			{
+				path: '/questions',
+				element: (
+					<QuestionsPage/>
+						
+					
+				)
+			},
+			
+			
+		]
+	}
+])
