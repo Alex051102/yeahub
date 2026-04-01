@@ -1,1 +1,1 @@
-import { QuestionsList } from './ui/QuestionsList';
+export { QuestionsList } from './ui/QuestionsList';

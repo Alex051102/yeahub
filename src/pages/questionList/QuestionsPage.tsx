@@ -1,5 +1,5 @@
 
-import { QuestionsList } from '../../widgets/questions-list/ui/QuestionsList'
+import { QuestionsList } from '@/widgets/questions-list/ui/QuestionsList'
 
 
 export default function QuestionsPage() {
