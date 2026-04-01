@@ -1,5 +1,5 @@
 
-import { useGetPublicQuestionsQuery } from '../../../entities/question'
+import { useGetPublicQuestionsQuery } from '@/entities/question'
 
 
 export const QuestionsList = () => {
