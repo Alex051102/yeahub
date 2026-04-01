@@ -21,7 +21,7 @@ export const QuestionsList = () => {
   
   return (
     <div>
-      <h3>RTK Query данные:</h3>
+      <h3>RTK Querghhy данные:</h3>
       {result.data.data.map(question => (
         <div key={question.id}>
           <h3>{question.title}</h3>
