@@ -1,4 +1,4 @@
-import { baseApi } from '@/app/store/baseApi';
+import { baseApi } from '../../../app/store/baseApi';
 import type { Question, QuestionsListResponse, GetQuestionsParams } from '../model/types';
 
 export const questionApi = baseApi.injectEndpoints({

@@ -1,5 +1,5 @@
 
-import { useGetPublicQuestionsQuery } from '@/entities/question'
+import { useGetPublicQuestionsQuery } from '../../../entities/question'
 
 
 export const QuestionsList = () => {
@@ -22,7 +22,7 @@ export const QuestionsList = () => {
   return (
     <div>
       <h3>RTK Querghhy данные:</h3>
-      {result.data.data.map(question => (
+      {result.data.data.map((question:any) => (
         <div key={question.id}>
           <h3>{question.title}</h3>
           <p>{question.description}</p>
