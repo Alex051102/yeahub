@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Header.module.css'
 import {LINKS} from '../../../shared/constants'
 
@@ -11,7 +11,7 @@ import { Drawer } from '../../../shared/ui/Drawer/Drawer'
 import { ChevronDownIcon } from '../../../shared/assets/icons/ChevronDownIcon'
 import { BurgerIcon } from '../../../shared/assets/icons/BurgerIcon'
 
-export default function Header() {
+export const Header=()=> {
   const [isBurgerOpen,setBurgerOpen]=useState(false)
   const [isgroupMenuOpen,setGroupMenuOpen]=useState(false)
 

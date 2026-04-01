@@ -40,14 +40,14 @@ export interface QuestionsListResponse {
 }
 
 export interface GetQuestionsParams {
-  page: number;
-  limit: number;
-  title: string;
-  titleOrDescription: string;
-  skills: string[];
-  specializationId: number;
-  complexity: number[];
-  rate: number[];
-  orderBy: string;
-  order: string;
+  page?: number;
+  limit?: number;
+  title?: string;
+  titleOrDescription?: string;
+  skills?: string[];
+  specializationId?: number;
+  complexity?: number[];
+  rate?: number[];
+  orderBy?: string;
+  order?: string;
 }

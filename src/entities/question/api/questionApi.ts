@@ -42,7 +42,7 @@ export const questionApi = baseApi.injectEndpoints({
 
     getQuestionById: builder.query<Question, number>({
       query: (id) => `/questions/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Question', id }],
+      providesTags: (_result, _error, id) => [{ type: 'Question', id }],
     }),
   }),
 });
