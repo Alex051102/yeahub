@@ -18,7 +18,7 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
     rate:rate,
     complexity:complexity,
     skills:skills,
-    specializations:specialization
+    specializationId:specialization?.length ? specialization[0] : undefined
   })
   
   

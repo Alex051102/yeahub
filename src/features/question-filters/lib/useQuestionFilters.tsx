@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect } from 'react'
+import  { useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 export const useQuestionFilters = () => {
     const [searchParams,setSearchParams] = useSearchParams()
 
-  const updateFilters = useCallback((key: string, value: number | string | number[] | null) => {
+  const updateFilters = useCallback((key: string, value: number | number[] | null) => {
     
     if (value === null) {
       const newParams = new URLSearchParams(searchParams)
@@ -30,13 +30,25 @@ export const useQuestionFilters = () => {
         newValues = [...new Set([...currentValues, ...value])]
       }
     } else {
-    
       const numValue = Number(value)
+      if(key=='specialization'){
+        
+      if (currentValues.includes(numValue)) {
+        newValues = currentValues.filter(v => v !== numValue)
+      } else {
+        newValues = [numValue]
+      }
+      }
+      else{
+        
       if (currentValues.includes(numValue)) {
         newValues = currentValues.filter(v => v !== numValue)
       } else {
         newValues = [...currentValues, numValue]
       }
+      }
+    
+      
     }
     
     const newParams = new URLSearchParams(searchParams)
@@ -54,14 +66,14 @@ export const useQuestionFilters = () => {
     
     setSearchParams(newParams, { replace: true })
   }, [searchParams, setSearchParams])
-  const rate=searchParams.get('rate')?.split(',').map(v => isNaN(Number(v)) ? v : Number(v))
-  const complexity=searchParams.get('complexity')?.split(',').map(v => isNaN(Number(v)) ? v : Number(v))
-  const specialization=searchParams.get('specialization')?.split(',').map(v => isNaN(Number(v)) ? v : Number(v))
-  const skills=searchParams.get('skills')?.split(',').map(v => Number(v))
+  const rate=searchParams.get('rate')?.split(',').map(v => Number(v))
+  const complexity=searchParams.get('complexity')?.split(',').map(v => Number(v))
+  const specialization=searchParams.get('specialization')?.split(',').map(v => Number(v))
+  const skills=searchParams.get('skills')?.split(',')
 
 
 
-console.log(complexity)
+
   return {updateFilters,rate,complexity,skills,specialization}
 }
 

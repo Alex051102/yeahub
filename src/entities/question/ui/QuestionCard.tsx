@@ -1,5 +1,4 @@
 
-import { ChevronDownIcon } from '@/shared/assets/icons/ChevronDownIcon'
 import styles from './QuestionCard.module.css'
 import accordion from '@/shared/assets/icons/accordion.svg'
 import accordeon from '@/shared/assets/icons/questionAccordeon.svg'
@@ -11,7 +10,7 @@ interface QuestionCardProps{
   complexity:number,
   shortAnswer:string,
 }
-export default function QuestionCard({id,title,rate,complexity,shortAnswer}:QuestionCardProps) {
+export default function QuestionCard({title,rate,complexity,shortAnswer}:QuestionCardProps) {
   const [isOpenAnswer,setOpenAnswer]=useState(false)
 
   return (

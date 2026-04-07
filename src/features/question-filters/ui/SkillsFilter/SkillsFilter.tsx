@@ -8,7 +8,7 @@ interface SkillsFilterProps {
   value: number | null           
   update: (type:string,value:any) => void  
 }
-export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
+export const SkillsFilter = ({update}:SkillsFilterProps) => {
   
     const {specialization,skills}=useQuestionFilters()
     const [view,setView]=useState(false)
@@ -28,7 +28,7 @@ export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
         <FilterChip 
         image={skill.imageSrc}
   title={skill.title}
-  selected={skills?.includes(skill.id)}
+  selected={skills?.includes(String(skill.id))}
   onClick={() => update('skills', skill.id)}
 />
         
