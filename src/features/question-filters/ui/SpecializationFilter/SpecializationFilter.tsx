@@ -24,7 +24,7 @@ export const SpecializationFilter = ({update}:SpecializationFilterProps) => {
         {result.data?.data.slice(0,view==false?5:result.data?.data.length).map((sp)=>(
         <FilterChip 
   title={sp.title}
-  selected={specialization==(sp.id)}
+  selected={specialization?specialization.includes(sp.id):false}
   onClick={() => update('specialization', sp.id)}
 />
         

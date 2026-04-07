@@ -28,7 +28,7 @@ export const SkillsFilter = ({update}:SkillsFilterProps) => {
         <FilterChip 
         image={skill.imageSrc}
   title={skill.title}
-  selected={skills?.includes(String(skill.id))}
+  selected={skills?skills.includes(String(skill.id)):false}
   onClick={() => update('skills', skill.id)}
 />
         

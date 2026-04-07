@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './SearchInput.module.css'
 
 import { SearchIcon } from '@/shared/assets/icons/SearchIcon'
