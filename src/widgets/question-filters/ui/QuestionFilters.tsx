@@ -17,7 +17,7 @@ export const QuestionFilters = ({onClose}:QuestionFiltersProps) => {
             <div className={styles.filters__exitBlock}>
                 <img onClick={onClose} src={close} alt="" />
             </div>
-            <SearchInput></SearchInput>
+            <SearchInput update={updateFilters} delay={3000}></SearchInput>
             <SpecializationFilter value={1} update={updateFilters}></SpecializationFilter>
              <SkillsFilter value={1} update={updateFilters}></SkillsFilter>
             

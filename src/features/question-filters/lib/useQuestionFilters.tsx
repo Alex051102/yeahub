@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 export const useQuestionFilters = () => {
     const [searchParams,setSearchParams] = useSearchParams()
 
-  const updateFilters = useCallback((key: string, value: number | number[] | null) => {
+  const updateFilters = useCallback((key: string, value: number | string | number[] | null) => {
     
     if (value === null) {
       const newParams = new URLSearchParams(searchParams)
@@ -18,7 +18,17 @@ export const useQuestionFilters = () => {
     const currentValues = current ? current.split(',').map(v => Number(v)) : []
     
     let newValues: number[]
-    
+    if (typeof value === 'string') {
+      const newParams = new URLSearchParams(searchParams)
+      if (value && value.trim() !== '') {
+        newParams.set(key, value)
+      } else {
+        newParams.delete(key)
+      }
+      if (key !== 'page') newParams.delete('page')
+      setSearchParams(newParams, { replace: true })
+      return
+    }
     if (Array.isArray(value)) {
       
       const hasAll = value.every(v => currentValues.includes(v))
@@ -70,11 +80,12 @@ export const useQuestionFilters = () => {
   const complexity=searchParams.get('complexity')?.split(',').map(v => Number(v))
   const specialization=searchParams.get('specialization')?.split(',').map(v => Number(v))
   const skills=searchParams.get('skills')?.split(',')
+ const titleOrDescription = searchParams.get('search') ?? ''
 
 
 
 
-  return {updateFilters,rate,complexity,skills,specialization}
+  return {updateFilters,rate,complexity,skills,specialization,titleOrDescription}
 }
 
 

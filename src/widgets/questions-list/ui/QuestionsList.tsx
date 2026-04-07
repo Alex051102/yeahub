@@ -10,7 +10,7 @@ interface QuestionListProps{
 }
 export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
-  const {rate,complexity,skills,specialization}=useQuestionFilters()
+  const {rate,complexity,skills,specialization,titleOrDescription}=useQuestionFilters()
   const {isMobile}=useAdaptive()
   const result = useGetPublicQuestionsQuery({
     page: 1,
@@ -18,7 +18,8 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
     rate:rate,
     complexity:complexity,
     skills:skills,
-    specializationId:specialization?.length ? specialization[0] : undefined
+    specializationId:specialization?.length ? specialization[0] : undefined,
+    titleOrDescription:titleOrDescription
   })
   
   
