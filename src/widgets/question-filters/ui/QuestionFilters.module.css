@@ -1,0 +1,40 @@
+.filters{
+   background: #FFFFFF;
+   border-radius: 1.5rem;
+   max-height: 955px;
+}
+.filters__container{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.filters__exitBlock{
+    display: none;
+}
+
+
+@media(max-width:1024px){
+    .filters{
+  position: absolute;
+  top: 50px;
+  width: 393px;
+  right: 1px;
+}
+    .filters__exitBlock{
+    display: flex;
+    justify-content: end;
+}
+
+}
+
+@media(max-width:480px){
+    .filters{
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  right: 1px;
+}
+    
+
+}

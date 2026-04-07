@@ -1,0 +1,10 @@
+.filters__data{
+    display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+}
+.filters__button{
+    color: #5509CC;
+    text-decoration: underline;
+    font-size: 0.875rem;
+}

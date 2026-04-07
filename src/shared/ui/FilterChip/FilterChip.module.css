@@ -1,0 +1,23 @@
+.filterChip{
+    border-radius: 12px;
+    border: 1px solid #BABABA;
+    cursor: pointer;
+}
+.filterChipSelected{
+     border: 1px solid #6A0BFF
+}
+.filterChip__image{
+    width: 30px;
+    height: 30px;
+}
+.filterChip__container{
+    padding: 0.375rem 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.filterChip__name{
+    
+    font-size: 1rem;
+    font-weight: 500;
+}

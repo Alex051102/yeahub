@@ -1,13 +1,24 @@
 
 import { useGetPublicQuestionsQuery } from '@/entities/question'
-
-
-export const QuestionsList = () => {
+import {useQuestionFilters} from '@/features/question-filters'
+import styles from './QuestionsList.module.css'
+import { FiltersIcon } from '@/shared/assets/icons/FiltersIcon'
+import QuestionCard from '@/entities/question/ui/QuestionCard'
+import { useAdaptive } from '@/shared/lib'
+interface QuestionListProps{
+  onOpen:()=>void
+}
+export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
-  
+  const {rate,complexity,skills,specialization}=useQuestionFilters()
+  const {isMobile}=useAdaptive()
   const result = useGetPublicQuestionsQuery({
     page: 1,
     limit: 10,
+    rate:rate,
+    complexity:complexity,
+    skills:skills,
+    specializations:specialization
   })
   
   
@@ -20,14 +31,22 @@ export const QuestionsList = () => {
   if (!result.data?.data?.length) return <div>Нет данных от RTK</div>
   
   return (
-    <div>
-      <h3>RTK Querghhy данные:</h3>
-      {result.data.data.map((question:any) => (
-        <div key={question.id}>
-          <h3>{question.title}</h3>
-          <p>{question.description}</p>
+    <div className={styles.questions}>
+      <div className={styles.questions__container}>
+        <div className={styles.questions__header}>
+           <h3>Вопросы</h3>
+        {isMobile?<button onClick={onOpen} className={styles.questions__filterButton}><FiltersIcon></FiltersIcon></button>:""}
         </div>
+       
+      <div className={styles.questions__list}>
+        {result.data.data.map((question:any) => (
+          <QuestionCard key={question.id} complexity={question.complexity} shortAnswer={question.shortAnswer}  rate={question.rate} id={question.id} title={question.title}></QuestionCard>
+        
       ))}
+         </div>
+      </div>
+      
+      
       
       
     </div>
