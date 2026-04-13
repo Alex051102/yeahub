@@ -7,7 +7,7 @@ interface FilterChipProps{
     onClick: () => void
 }
 const FilterChip = ({image,title,selected,onClick}:FilterChipProps) => {
-    console.log(selected)
+ 
   return (
     <div onClick={onClick} className={`${selected?styles.filterChipSelected:""} ${styles.filterChip}`}>
             <div className={styles.filterChip__container}>

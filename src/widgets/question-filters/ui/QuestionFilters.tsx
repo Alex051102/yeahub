@@ -4,25 +4,21 @@ import {RateFilter} from '@/features/question-filters'
 import {SkillsFilter} from '@/features/question-filters'
 import {SpecializationFilter} from '@/features/question-filters'
 import styles from './QuestionFilters.module.css'
-import close from '@/shared/assets/icons/close-icon.svg'
+
 import SearchInput from '@/shared/ui/SearchInput/SearchInput'
-interface QuestionFiltersProps{
-    onClose?:()=>void
-}
-export const QuestionFilters = ({onClose}:QuestionFiltersProps) => {
-    const {updateFilters}=useQuestionFilters()
+
+export const QuestionFilters = () => {
+    const {updateFilters,skills,specialization,rate,complexity}=useQuestionFilters()
   return (
     <div className={styles.filters}>
          <div className={styles.filters__container}>
-            <div className={styles.filters__exitBlock}>
-                <img onClick={onClose} src={close} alt="" />
-            </div>
-            <SearchInput update={updateFilters} delay={3000}></SearchInput>
-            <SpecializationFilter value={1} update={updateFilters}></SpecializationFilter>
-             <SkillsFilter value={1} update={updateFilters}></SkillsFilter>
             
-      <ComplexityFilter value={1} update={updateFilters}></ComplexityFilter>
-      <RateFilter value={1} update={updateFilters}></RateFilter>
+            <SearchInput update={(value)=>updateFilters('titleOrDescription',value)} delay={3000}></SearchInput>
+            <SpecializationFilter value={specialization} update={updateFilters}></SpecializationFilter>
+             <SkillsFilter value={skills} update={updateFilters}></SkillsFilter>
+            
+      <ComplexityFilter value={complexity} update={updateFilters}></ComplexityFilter>
+      <RateFilter value={rate} update={updateFilters}></RateFilter>
       
      
          </div>

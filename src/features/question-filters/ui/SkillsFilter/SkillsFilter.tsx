@@ -5,12 +5,12 @@ import FilterSection from '@/shared/ui/FilterSection/FilterSection'
 import FilterChip from '@/shared/ui/FilterChip/FilterChip'
 import styles from './SkillsFilter.module.css'
 interface SkillsFilterProps {
-  value: number | null           
-  update: (type:string,value:any) => void  
+  value: string[] | undefined           
+  update: (type:string,value:number) => void  
 }
-export const SkillsFilter = ({update}:SkillsFilterProps) => {
+export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
   
-    const {specialization,skills}=useQuestionFilters()
+    const {specialization}=useQuestionFilters()
     const [view,setView]=useState(false)
     const result=useGetSkillsQuery({
         page:1,
@@ -28,7 +28,7 @@ export const SkillsFilter = ({update}:SkillsFilterProps) => {
         <FilterChip 
         image={skill.imageSrc}
   title={skill.title}
-  selected={skills?skills.includes(String(skill.id)):false}
+  selected={value?value.includes(String(skill.id)):false}
   onClick={() => update('skills', skill.id)}
 />
         

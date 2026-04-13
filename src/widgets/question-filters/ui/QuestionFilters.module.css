@@ -15,26 +15,10 @@
 
 
 @media(max-width:1024px){
-    .filters{
-  position: absolute;
-  top: 50px;
-  width: 393px;
-  right: 1px;
-}
-    .filters__exitBlock{
-    display: flex;
-    justify-content: end;
+   .filters__container{
+    padding:0;
+   
 }
 
 }
 
-@media(max-width:480px){
-    .filters{
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  right: 1px;
-}
-    
-
-}

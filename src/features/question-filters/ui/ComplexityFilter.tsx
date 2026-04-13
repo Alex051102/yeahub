@@ -3,16 +3,16 @@ import FilterChip from '@/shared/ui/FilterChip/FilterChip'
 import FilterSection from '@/shared/ui/FilterSection/FilterSection'
 
 interface ComplexityFilterProps {
-  value: number | null         
-  update: (type:string,value:any) => void  
+  value: number[] ,        
+  update: (type:string,value:number[]) => void  
 }
-export const ComplexityFilter = ({update}:ComplexityFilterProps) => {
+export const ComplexityFilter = ({value,update}:ComplexityFilterProps) => {
   return (
     <FilterSection title='Сложность'>
       {COMPLEXITY_RANGES.map((compl)=>(
         <FilterChip 
   title={compl.label}
-  selected={false}
+  selected={compl.values.every(v => value?.includes(v))}
   onClick={() => update('complexity', compl.values)}
 />
         

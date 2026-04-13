@@ -19,7 +19,7 @@ export default function QuestionCard({title,rate,complexity,shortAnswer}:Questio
        <div className={styles.questionsCard__main}> 
          <p className={styles.questions__title}>{title}</p>
           <img className={`${isOpenAnswer?`${styles.questionCard__arrowRotate}`:""} ${styles.questionCard__arrow}`} src={accordion} alt="" /> </div>
-        {isOpenAnswer?
+        {isOpenAnswer&&
         <div className={styles.questionsCard__answer}>
             <div className={styles.questionsCard__info}>
               <div className={styles.questionsCard__stats}>
@@ -45,7 +45,7 @@ export default function QuestionCard({title,rate,complexity,shortAnswer}:Questio
             <div className={styles.questionsCard__main}>
               <div dangerouslySetInnerHTML={{ __html: shortAnswer }} />
             </div>
-          </div>:""}
+          </div>}
           
           
       </div>

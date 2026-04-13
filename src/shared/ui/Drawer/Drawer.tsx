@@ -1,5 +1,7 @@
+
 import type { ReactNode } from 'react'
 import { useEffect, useRef } from 'react'
+
 
 interface DrawerProps {
 	children: ReactNode
@@ -17,7 +19,7 @@ export const Drawer = ({
 	lockScroll = true
 }: DrawerProps) => {
 	const drawerRef = useRef<HTMLDivElement>(null)
-
+	
 	useEffect(() => {
 		if (!isOpen) return
 		const handleClickOutside = (event: MouseEvent) => {
@@ -65,6 +67,8 @@ export const Drawer = ({
 			className={className}
 			onClick={e => e.stopPropagation()}
 		>
+			
+			
 			{children}
 		</div>
 	)

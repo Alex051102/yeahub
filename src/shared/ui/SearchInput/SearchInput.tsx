@@ -1,32 +1,55 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import styles from './SearchInput.module.css'
-
 import { SearchIcon } from '@/shared/assets/icons/SearchIcon'
-import { useDebounce } from '@/shared/lib'
-interface SearchInputProps {
-  placeholder?:string,
-  delay:number,
-  update?: (type:string,value:any) => void  
-  
 
+interface SearchInputProps {
+  placeholder?: string
+  delay?: number
+  update?: ( value: string) => void
 }
-const SearchInput = ({placeholder,delay,update}:SearchInputProps) => {
-  const [searchText,setSearchText]=useState('')
-  const value= useDebounce(searchText,delay)
-  useEffect(()=>{
-    if(update)
-      update('titleOrDescription',value)
+
+const SearchInput = ({ 
+  placeholder = 'Поиск...', 
+  delay = 500, 
+  update 
+}: SearchInputProps) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleInput = () => {
+    const value = inputRef.current?.value || ''
     
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
     
-  },[value,update])
+    timeoutRef.current = setTimeout(() => {
+      if (update) {
+        update(value)
+      }
+    }, delay)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
   return (
     <div className={styles.search}>
       <div className={styles.search__container}>
-        <SearchIcon></SearchIcon>
-      <input placeholder={placeholder} className={styles.search__input} value={searchText} onChange={(e)=>setSearchText(e.target.value)} type='search' />
+        <SearchIcon />
+        <input
+          ref={inputRef}
+          type="search"
+          placeholder={placeholder}
+          className={styles.search__input}
+          onInput={handleInput}
+        />
       </div>
-      
-  
     </div>
   )
 }

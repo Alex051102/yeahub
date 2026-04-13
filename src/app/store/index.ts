@@ -1,4 +1,3 @@
-// src/app/store/index.ts
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from './baseApi';
 console.log('Store создается');
