@@ -45,7 +45,10 @@ const Pagination = ({currentPage,pages,update}:PaginationProps) => {
   const pagesGenerate=getPages()
 
 
-  function updateValues(page:number,action:'increment' | 'decrement' | 'set'){
+  function updateValues(page:number | string,action:'increment' | 'decrement' | 'set'){
+    if(typeof page!='number'){
+        return
+    }
     if(action=='decrement'){
         if(page>1){
             update(page--)

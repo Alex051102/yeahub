@@ -3,7 +3,7 @@ import FilterChip from '@/shared/ui/FilterChip/FilterChip'
 import FilterSection from '@/shared/ui/FilterSection/FilterSection'
 
 interface ComplexityFilterProps {
-  value: number[] ,        
+  value: number[] | undefined ,        
   update: (type:string,value:number[]) => void  
 }
 export const ComplexityFilter = ({value,update}:ComplexityFilterProps) => {

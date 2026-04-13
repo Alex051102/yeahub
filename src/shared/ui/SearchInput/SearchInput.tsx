@@ -14,8 +14,8 @@ const SearchInput = ({
   update 
 }: SearchInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  
   const handleInput = () => {
     const value = inputRef.current?.value || ''
     
