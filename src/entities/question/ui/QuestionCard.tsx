@@ -3,6 +3,7 @@ import styles from './QuestionCard.module.css'
 import accordion from '@/shared/assets/icons/accordion.svg'
 import accordeon from '@/shared/assets/icons/questionAccordeon.svg'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 interface QuestionCardProps{
   id:number,
   title:string,
@@ -10,7 +11,8 @@ interface QuestionCardProps{
   complexity:number,
   shortAnswer:string,
 }
-export default function QuestionCard({title,rate,complexity,shortAnswer}:QuestionCardProps) {
+export default function QuestionCard({id
+  ,title,rate,complexity,shortAnswer}:QuestionCardProps) {
   const [isOpenAnswer,setOpenAnswer]=useState(false)
 
   return (
@@ -40,7 +42,7 @@ export default function QuestionCard({title,rate,complexity,shortAnswer}:Questio
                 </div>
                 </div>
               </div>
-              <img src={accordeon} alt="" />
+              <NavLink to={`${id}`}><img src={accordeon} alt="" /></NavLink>
             </div>
             <div className={styles.questionsCard__main}>
               <div dangerouslySetInnerHTML={{ __html: shortAnswer }} />

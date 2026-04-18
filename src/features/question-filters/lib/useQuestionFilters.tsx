@@ -172,7 +172,7 @@ setSearchParams(newParams, { replace: true })
   const complexity=searchParams.get('complexity')?.split(',').map(v => Number(v))
   const specialization=searchParams.get('specialization')?.split(',').map(v => Number(v))
   const skills=searchParams.get('skills')?.split(',')
- const titleOrDescription = searchParams.get('search') ?? ''
+ const titleOrDescription = searchParams.get('titleOrDescription') ?? ''
  const page=Number(searchParams.get('page')?.split(','))
 
 

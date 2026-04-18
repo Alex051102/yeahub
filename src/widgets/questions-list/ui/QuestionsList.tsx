@@ -16,6 +16,7 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
   const {page,rate,complexity,skills,specialization,titleOrDescription,updateFilters}=useQuestionFilters()
 
+  console.log('cc'+titleOrDescription)
   const {isMobile}=useAdaptive()
  
   const result = useGetPublicQuestionsQuery({

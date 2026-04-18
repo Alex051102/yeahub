@@ -1,0 +1,33 @@
+.questionDeatailPage{
+     display: flex;
+    flex-direction: column;
+    
+    gap: 24px;
+}
+.questionDeatailPageMain{
+   
+
+    display: grid;
+    grid-template-columns: auto 392px;
+    gap: 20px;
+}
+
+.questionDetailBack{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.questionDetailBackText{
+    font-size: 1rem;
+    color: #6A0BFF;
+}
+
+@media(max-width:1024px){
+    .questionDeatailPageMain{
+   
+
+   
+    grid-template-columns: auto;
+    
+}
+}

@@ -3,7 +3,7 @@ interface FilterChipProps{
   
    image?:string,
     title:string,
-    selected:boolean,
+    selected?:boolean,
     onClick: () => void
 }
 const FilterChip = ({image,title,selected,onClick}:FilterChipProps) => {

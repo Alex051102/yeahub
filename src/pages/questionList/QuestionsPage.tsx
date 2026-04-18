@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 import SideBar from '@/shared/ui/SideBar/SideBar'
 import { useAdaptive } from '@/shared/lib'
+import { Outlet } from 'react-router-dom'
 
 export default function QuestionsPage() {
 
@@ -20,7 +21,7 @@ export default function QuestionsPage() {
              <QuestionsList onOpen={()=>setOpenFilters(true)}></QuestionsList>
              {isMobile?<SideBar isOpen={isOpenFilters} onClose={()=>setOpenFilters(false)}><QuestionFilters></QuestionFilters></SideBar>:<QuestionFilters></QuestionFilters>}
 
-            
+            <Outlet></Outlet>
         </div>
    
       </Container>

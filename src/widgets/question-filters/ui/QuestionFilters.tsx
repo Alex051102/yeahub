@@ -17,8 +17,8 @@ export const QuestionFilters = () => {
             <SpecializationFilter value={specialization} update={updateFilters}></SpecializationFilter>
              <SkillsFilter value={skills} update={updateFilters}></SkillsFilter>
             
-      <ComplexityFilter value={complexity} update={updateFilters}></ComplexityFilter>
-      <RateFilter value={rate} update={updateFilters}></RateFilter>
+            <ComplexityFilter value={complexity} update={updateFilters}></ComplexityFilter>
+            <RateFilter value={rate} update={updateFilters}></RateFilter>
       
      
          </div>
