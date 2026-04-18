@@ -1,7 +1,8 @@
 .filters{
    background: #FFFFFF;
    border-radius: 1.5rem;
-   
+   position: sticky;
+   top: 20px;
 }
 .filters__container{
     padding: 1.5rem;

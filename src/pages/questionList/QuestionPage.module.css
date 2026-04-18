@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: auto 392px;
     gap: 20px;
+    align-items: start;
 
 }
 

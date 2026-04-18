@@ -2,6 +2,7 @@
 import styles from './QuestionCard.module.css'
 import accordion from '@/shared/assets/icons/accordion.svg'
 import accordeon from '@/shared/assets/icons/questionAccordeon.svg'
+import { Drawer } from '@/shared/ui/Drawer/Drawer'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 interface QuestionCardProps{
@@ -14,9 +15,18 @@ interface QuestionCardProps{
 export default function QuestionCard({id
   ,title,rate,complexity,shortAnswer}:QuestionCardProps) {
   const [isOpenAnswer,setOpenAnswer]=useState(false)
+  const [isOpenDrawer,setOpenDrawer]=useState(false)
+
+  function opener(e){
+    const accordeon =document.getElementById('questionsCard__accordeon')
+    if(e.target!=accordeon){
+      setOpenAnswer(prev=>!prev)
+    }
+
+  }
 
   return (
-    <div onClick={()=>setOpenAnswer(prev=>!prev)} className={styles.questionsCard}>
+    <div onClick={(e)=>opener(e)} className={styles.questionsCard}>
       <div className={styles.questionsCard__container}>
        <div className={styles.questionsCard__main}> 
          <p className={styles.questions__title}>{title}</p>
@@ -42,7 +52,15 @@ export default function QuestionCard({id
                 </div>
                 </div>
               </div>
-              <NavLink to={`${id}`}><img src={accordeon} alt="" /></NavLink>
+              <button  onClick={()=>setOpenDrawer(true)}><img id='questionsCard__accordeon' src={accordeon} alt="" /></button>
+              <Drawer className={styles.questionsCard__navWrapper} onClose={()=>setOpenDrawer(false)} isOpen={isOpenDrawer}>
+                <nav className={styles.questionsCard__nav}>
+                  <NavLink className={styles.questionsCard__navItemMobile} to={`${id}`}>Подробнее</NavLink>
+                   <NavLink className={styles.questionsCard__navItemMobile} to={`*`}>ереакпрнеап</NavLink>
+                </nav>
+                
+                </Drawer>
+              
             </div>
             <div className={styles.questionsCard__main}>
               <div dangerouslySetInnerHTML={{ __html: shortAnswer }} />

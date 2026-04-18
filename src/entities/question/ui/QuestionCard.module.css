@@ -58,6 +58,7 @@ border-radius: 0.5rem;
 .questionsCard__info{
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .questionsCard__stats{
     display: flex;
@@ -85,4 +86,31 @@ border-radius: 0.5rem;
 }
 .questionsCard__statText{
     font-size: 0.875rem;
+}
+
+
+.questionsCard__navWrapper{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.questionsCard__nav{
+     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow:  0 4px 8px 2px rgba(0, 0, 0, .4);
+}
+
+
+
+.questionsCard__navItemMobile{
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: start;
+}
+.questionsCard__navItemMobile:hover{
+   background-color: aliceblue;
 }
