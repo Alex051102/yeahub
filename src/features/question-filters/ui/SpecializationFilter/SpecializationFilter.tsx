@@ -3,6 +3,7 @@ import FilterChip from '@/shared/ui/FilterChip/FilterChip'
 import FilterSection from '@/shared/ui/FilterSection/FilterSection'
 import  { useState } from 'react'
 import styles from './SpecializationFilter.module.css'
+import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 
 interface SpecializationFilterProps {
   value: number[] | undefined          
@@ -15,9 +16,24 @@ export const SpecializationFilter = ({value,update}:SpecializationFilterProps) =
     limit: 10,
    
   })
+
+  
   
   
   const [view,setView]=useState(false)
+
+  if(result.isLoading) return <FilterSection title='Специализация'>
+      <div className={styles.filters__data}>
+        {[...Array(5)].map((_,i)=>(
+        <Skeleton borderRadius='12px' key={i} width={'180px'} height={'36px'}></Skeleton>
+        
+       
+      ))}
+      </div>
+      
+     <Skeleton borderRadius='12px' width={'101px'} height={'21px'}></Skeleton>
+      
+      </FilterSection>
   return (
     <FilterSection title='Специализация'>
       <div className={styles.filters__data}>

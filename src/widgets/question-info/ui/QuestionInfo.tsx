@@ -3,6 +3,7 @@ import FilterChip from "@/shared/ui/FilterChip/FilterChip"
 import FilterSection from "@/shared/ui/FilterSection/FilterSection"
 import { useNavigate, useParams } from "react-router-dom"
 import styles from './QuestionInfo.module.css'
+import QuestionInfoSkeleton from "./QuestionInfoSkeleton"
 
 export const QuestionInfo = () => {
   const { id } = useParams()
@@ -10,10 +11,11 @@ export const QuestionInfo = () => {
     const numId = Number(id)
     const result = useGetQuestionByIdQuery(numId) 
     const handleSkillClick = (skillId: number) => {
-    
-   
     navigate(`/questions?skills=${skillId}`)
   }
+
+  if(result.isError) return 
+  if(result.isLoading) return <QuestionInfoSkeleton></QuestionInfoSkeleton>
 
   return (
     <div className={styles.questionInfo__container}>

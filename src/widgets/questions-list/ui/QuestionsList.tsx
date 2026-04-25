@@ -7,18 +7,22 @@ import QuestionCard from '@/entities/question/ui/QuestionCard'
 import { useAdaptive } from '@/shared/lib'
 
 
-import Pagination from '@/shared/ui/Pagination/Pagination'
+
+
+import QuestionsListSkeleton from './QuestionsListSkeleton'
+import ErrorWidget from '@/shared/ui/ErrorWidget/ErrorWidget'
+import { QuestionPagination } from '@/widgets/question-pagination/ui/QuestionPagination'
 
 interface QuestionListProps{
   onOpen:()=>void
 }
 export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
-  const {page,rate,complexity,skills,specialization,titleOrDescription,updateFilters}=useQuestionFilters()
+  const {page,rate,complexity,skills,specialization,titleOrDescription}=useQuestionFilters()
 
-  console.log('cc'+titleOrDescription)
+
   const {isMobile}=useAdaptive()
- 
+ const {resetFilters}=useQuestionFilters()
   const result = useGetPublicQuestionsQuery({
     page:  page || 1,
     limit: 10,
@@ -33,11 +37,15 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
   
   
-  if (result.isLoading) return <div>Загрузка RTK...</div>
+  if (result.isLoading) {
+    return (
+      <QuestionsListSkeleton></QuestionsListSkeleton>
+    )
+  }
   if (result.error) return <div>Ошибка RTK: {JSON.stringify(result.error)}</div>
-  if (!result.data?.data?.length) return <div>Нет данных от RTK</div>
+  if (!result.data?.data?.length) return <ErrorWidget reset={resetFilters} errorMessage='Попробуйте изменить категории'></ErrorWidget>
  
- 
+
   return (
     <div className={styles.questions}>
       <div className={styles.questions__container}>
@@ -54,7 +62,7 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
          </div>
 
         <div className={styles.pagination__wrapper}>
-          <Pagination currentPage={page} pages={Math.ceil(result.data.total/10)} update={(newValue)=>updateFilters('page',newValue)}></Pagination>
+          <QuestionPagination currentPage={page} pages={Math.ceil(result.data.total/10)}></QuestionPagination>
         </div>
       
       </div>

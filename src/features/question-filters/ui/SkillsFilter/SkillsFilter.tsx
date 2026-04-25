@@ -4,6 +4,7 @@ import {useQuestionFilters} from '../../lib/useQuestionFilters'
 import FilterSection from '@/shared/ui/FilterSection/FilterSection'
 import FilterChip from '@/shared/ui/FilterChip/FilterChip'
 import styles from './SkillsFilter.module.css'
+import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 interface SkillsFilterProps {
   value: string[] | undefined           
   update: (type:string,value:number) => void  
@@ -18,7 +19,20 @@ export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
         specializations:specialization
     })
 
-    console.log(result)
+    if(result.isLoading) return <>
+    <FilterSection title='Специализация'>
+      <div className={styles.filters__data}>
+        {[...Array(5)].map((_,i)=>(
+        <Skeleton borderRadius='12px' key={i} width={'107px'} height={'42px'}></Skeleton>
+        
+       
+      ))}
+      </div>
+      <Skeleton borderRadius='12px' width={'101px'} height={'21px'}></Skeleton>
+      
+      </FilterSection>
+      
+      </>
   return (
     
         <FilterSection title='Навыки'>
@@ -35,6 +49,7 @@ export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
        
       ))}
           </div>
+          
           <button className={styles.filters__button} onClick={()=>setView(prev=>!prev)}>{view?'Скрыть':'Посмотреть все'}</button>
       
      

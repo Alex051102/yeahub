@@ -9,6 +9,7 @@
 
     display: grid;
     grid-template-columns: auto 392px;
+    align-items: start;
     gap: 20px;
 }
 

@@ -58,6 +58,9 @@
 .questionDetail__answerContainer{
      background-color: white;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+   
 }
 .questionDetail__answer{
     padding: 1rem;
@@ -66,6 +69,64 @@
     gap: 20px;
 }
 
+.answerContent {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.answerContent.collapsed {
+  max-height: 300px; 
+}
+
+.answerContent:not(.collapsed) {
+  max-height: none; 
+}
+
+
+.answerContent.collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, white);
+  pointer-events: none;
+}
+
+.questionDetail__answerButtonWrapper{
+    display: flex;
+    justify-content: center;
+}
+.questionDetail__answerButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: opacity 0.2s;
+}
+
+.questionDetail__answerButton:hover {
+  opacity: 0.7;
+}
+
+.questionDetail__answerButtonArrow {
+  transition: transform 0.3s ease;
+  width: 16px;
+  height: 16px;
+}
+
+.questionDetail__answerButtonArrow.rotated {
+  transform: rotate(180deg);
+}
 
 @media(max-width:1024px){
     .questionDetail__filterButton{
