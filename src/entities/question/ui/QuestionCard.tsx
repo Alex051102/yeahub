@@ -17,7 +17,7 @@ export default function QuestionCard({id
   const [isOpenAnswer,setOpenAnswer]=useState(false)
   const [isOpenDrawer,setOpenDrawer]=useState(false)
 
-  function opener(e){
+  function opener(e:React.MouseEvent<HTMLDivElement>){
     const accordeon =document.getElementById('questionsCard__accordeon')
     if(e.target!=accordeon){
       setOpenAnswer(prev=>!prev)
