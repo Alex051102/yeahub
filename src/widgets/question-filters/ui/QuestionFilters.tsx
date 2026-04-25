@@ -10,7 +10,7 @@ import { useGetSkillsQuery } from '@/entities/skills/api/skillsApi'
 import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 
 export const QuestionFilters = () => {
-    const {updateFilters,skills,specialization,rate,complexity}=useQuestionFilters()
+    const {updateFilters,filters}=useQuestionFilters()
     const {isLoading}=useGetSkillsQuery({
       page:1,
       limit:10
@@ -20,11 +20,11 @@ export const QuestionFilters = () => {
          <div className={styles.filters__container}>
            
             {isLoading?<Skeleton width='auto' height='45px' borderRadius='68px'></Skeleton>:<SearchInput update={(value)=>updateFilters('titleOrDescription',value)} delay={3000}></SearchInput>}
-            <SpecializationFilter value={specialization} update={updateFilters}></SpecializationFilter>
-             <SkillsFilter value={skills} update={updateFilters}></SkillsFilter>
+            <SpecializationFilter value={filters.specialization} update={updateFilters}></SpecializationFilter>
+             <SkillsFilter value={filters.skills} update={updateFilters}></SkillsFilter>
             
-            <ComplexityFilter value={complexity} update={updateFilters}></ComplexityFilter>
-            <RateFilter value={rate} update={updateFilters}></RateFilter>
+            <ComplexityFilter value={filters.complexity} update={updateFilters}></ComplexityFilter>
+            <RateFilter value={filters.rate} update={updateFilters}></RateFilter>
       
      
          </div>

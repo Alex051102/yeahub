@@ -44,6 +44,7 @@ export interface GetQuestionsParams {
   limit?: number;
   title?: string;
   titleOrDescription?: string;
+  keywords?: string[];
   skills?: string[];
   specializationId?: number;
   complexity?: number[];

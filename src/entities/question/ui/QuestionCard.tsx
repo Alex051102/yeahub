@@ -56,7 +56,7 @@ export default function QuestionCard({id
               <Drawer className={styles.questionsCard__navWrapper} onClose={()=>setOpenDrawer(false)} isOpen={isOpenDrawer}>
                 <nav className={styles.questionsCard__nav}>
                   <NavLink className={styles.questionsCard__navItemMobile} to={`${id}`}>Подробнее</NavLink>
-                   <NavLink className={styles.questionsCard__navItemMobile} to={`*`}>ереакпрнеап</NavLink>
+                  
                 </nav>
                 
                 </Drawer>

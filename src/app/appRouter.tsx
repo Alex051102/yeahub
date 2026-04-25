@@ -4,7 +4,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout'
 import QuestionsPage from '../pages/questionList/QuestionsPage'
 import QuestionDeatail from '@/pages/questionDeatail/QuestionDeatailPage'
-
+import {ROUTES} from '@/shared/config/routes'
 
 
 export const appRouter = createBrowserRouter([
@@ -16,13 +16,13 @@ export const appRouter = createBrowserRouter([
 				index: true,
 				element: (
 					<Navigate
-						to='/questions'
+						to={`${ROUTES.QUESTIONS}`}
 						replace
 					/>
 				)
 			},
 			{
-				path: '/questions',
+				path: ROUTES.QUESTIONS,
 				element: (
 					<QuestionsPage/>
 						
@@ -31,7 +31,7 @@ export const appRouter = createBrowserRouter([
 				
 			},
 			{
-				path: '/questions/:id',
+				path: ROUTES.QUESTION_DETAIL,
 				element: (
 					<QuestionDeatail/>
 						

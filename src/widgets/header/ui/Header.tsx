@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Header.module.css'
 import {LINKS} from '../../../shared/constants'
-
+import type {LINKSObj} from '../../../shared/constants'
 import { NavLink } from 'react-router-dom'
 import { Button } from '../../../shared/ui'
 import { Container } from '../../../shared/ui/Container/Container'
@@ -57,7 +57,7 @@ export const Header=()=> {
         >
           
            <nav className={styles.header__navMobile}>
-            {LINKS.map((l:any)=>(
+            {LINKS.map((l:LINKSObj)=>(
         <NavLink className={styles.header__navItemMobile} key={l.to} to={l.to} onClick={closeAllMenus}>
           {l.label}
         </NavLink>

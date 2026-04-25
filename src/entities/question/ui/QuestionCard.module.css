@@ -113,4 +113,5 @@ border-radius: 0.5rem;
 }
 .questionsCard__navItemMobile:hover{
    background-color: aliceblue;
+   border-radius: 12px;
 }

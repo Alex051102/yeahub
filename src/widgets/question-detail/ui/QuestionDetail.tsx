@@ -18,20 +18,21 @@ export const QuestionDetail = ({ onOpen }: QuestionDetailProps) => {
   const { id } = useParams()
   const navigate = useNavigate()
   const numId = Number(id)
-  const {data,refetch,isError,isLoading,status} = useGetQuestionByIdQuery(numId)
+  const {data,refetch,isError,isLoading,status,isFetching} = useGetQuestionByIdQuery(numId)
 
   
   const [isExpanded, setIsExpanded] = useState(false)
   if(isError) return <ErrorPage refetch={refetch} errorMessage={`${status}`}></ErrorPage>
-  if(isLoading) return <QuestionDetailSkeleton></QuestionDetailSkeleton>
-
+  if(isLoading || isFetching) return <QuestionDetailSkeleton></QuestionDetailSkeleton>
+ 
   return (
     <div className={styles.questionDetail}>
       <div className={styles.questionDetail__main}>
         <div className={styles.questionDetail__introContainer}>
           <div className={styles.questionDetail__intro}>
             <div className={styles.question__imageWrapper}>
-              <div className={styles.question__image}></div>
+              {data?.imageSrc==null?<div className={styles.question__imageNull}></div>:<img className={styles.question__image} src={data?.imageSrc ?? ''} alt="" />}
+             
             </div>
             <div className={styles.question__introTextWrapper}>
               <p className={styles.question__title}>{data?.title}</p>

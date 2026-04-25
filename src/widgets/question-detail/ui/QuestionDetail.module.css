@@ -27,6 +27,11 @@
     height: 160px;
     background-color: black;
 }
+.question__imageNull{
+    min-width: 160px;
+    height: 160px;
+    background-color: black;
+}
 .questionDetail__filterButton{
     display: none;
 }

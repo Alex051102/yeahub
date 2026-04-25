@@ -18,31 +18,34 @@ interface QuestionListProps{
 }
 export const QuestionsList = ({onOpen}:QuestionListProps) => {
   
-  const {page,rate,complexity,skills,specialization,titleOrDescription}=useQuestionFilters()
+  const {filters}=useQuestionFilters()
 
 
   const {isMobile}=useAdaptive()
  const {resetFilters}=useQuestionFilters()
   const result = useGetPublicQuestionsQuery({
-    page:  page || 1,
+
+    
+    page: filters.page || 1,
     limit: 10,
-    rate:rate,
-    complexity:complexity,
-    skills:skills,
-    specializationId:specialization?.length ? specialization[0] : undefined,
-    titleOrDescription:titleOrDescription,
+    rate:filters.rate,
+    complexity:filters.complexity,
+    skills:filters.skills,
+    specializationId:filters.specialization?.length ? filters.specialization[0] : undefined,
+    titleOrDescription:filters.titleOrDescription,
+    keywords:filters.keywords 
     
   })
   
   
-  
+  console.log(filters.keywords)
   
   if (result.isLoading) {
     return (
       <QuestionsListSkeleton></QuestionsListSkeleton>
     )
   }
-  if (result.error) return <div>Ошибка RTK: {JSON.stringify(result.error)}</div>
+  if (result.error) return <ErrorWidget errorMessage='Произошла ошибка'></ErrorWidget>
   if (!result.data?.data?.length) return <ErrorWidget reset={resetFilters} errorMessage='Попробуйте изменить категории'></ErrorWidget>
  
 
@@ -62,7 +65,7 @@ export const QuestionsList = ({onOpen}:QuestionListProps) => {
          </div>
 
         <div className={styles.pagination__wrapper}>
-          <QuestionPagination currentPage={page} pages={Math.ceil(result.data.total/10)}></QuestionPagination>
+          <QuestionPagination currentPage={filters.page || 1} pages={Math.ceil(result.data.total/10)}></QuestionPagination>
         </div>
       
       </div>

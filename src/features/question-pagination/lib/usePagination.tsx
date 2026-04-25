@@ -1,40 +1,55 @@
-
 import { useQuestionFilters } from "@/features/question-filters"
 
-export const usePagination = (page: number, limit: number) => {
+export const usePagination = (page: number | null | undefined, limit: number) => {
   const { updateFilters } = useQuestionFilters()
   
-  const currentPage = page && !isNaN(page) ? page : 1
+
+  const currentPage = typeof page=='number' ? page : 1
 
   const getPages = () => {
-    const pages: (number | string)[] = []
-    
-    if (limit <= 1) return pages  
-    
-    pages.push(1)
+  const pages: (number | string)[] = []
 
-    const start = Math.max(2, currentPage - 1)
-    const end = Math.min(limit - 1, currentPage + 1)
-
-    if (start > 2) pages.push('...')
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i)
-    }
-
-    if (end < limit - 1) pages.push('...')
-
-    if (limit > 1 && pages[pages.length - 1] !== limit) {
-      pages.push(limit)
-    }
-
+  pages.push(1)
+  
+ 
+  if (limit === 1) return pages
+  
+  
+  if (limit === 2) {
+    pages.push(2)
     return pages
   }
+  
+  
+  if (currentPage <= 2) {
+    pages.push(2, 3)
+    if (limit > 3) pages.push('...')
+    pages.push(limit)
+    return pages
+  }
+  
+
+  if (currentPage >= limit - 1) {
+    pages.push('...')
+    for (let i = limit - 2; i <= limit; i++) {
+      if (i !== 1) pages.push(i)
+    }
+    return pages
+  }
+  
+  
+  pages.push('...')
+  pages.push(currentPage - 1, currentPage, currentPage + 1)
+  pages.push('...')
+  pages.push(limit)
+  
+  return pages
+}
 
   const updatePages = (newPage: number) => {
-    if (newPage < 1 || newPage > limit) return
+    if (isNaN(newPage) || newPage < 1 || newPage > limit) return
     updateFilters('page', newPage)
   }
 
-  return { getPages, updatePages }
+  return { getPages, updatePages, currentPage }
 }

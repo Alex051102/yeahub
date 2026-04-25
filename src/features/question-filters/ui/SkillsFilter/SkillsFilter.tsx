@@ -11,12 +11,12 @@ interface SkillsFilterProps {
 }
 export const SkillsFilter = ({value,update}:SkillsFilterProps) => {
   
-    const {specialization}=useQuestionFilters()
+    const {filters}=useQuestionFilters()
     const [view,setView]=useState(false)
     const result=useGetSkillsQuery({
         page:1,
         limit:10,
-        specializations:specialization
+        specializations:filters.specialization
     })
 
     if(result.isLoading) return <>

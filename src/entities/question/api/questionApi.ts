@@ -15,6 +15,7 @@ export const questionApi = baseApi.injectEndpoints({
           specializationId: params.specializationId,
           complexity: params.complexity,
           rate: params.rate,
+          keywords: params.keywords,
           orderBy: params.orderBy,
           order: params.order,
         },

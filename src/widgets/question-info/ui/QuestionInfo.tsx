@@ -5,14 +5,18 @@ import { useNavigate, useParams } from "react-router-dom"
 import styles from './QuestionInfo.module.css'
 import QuestionInfoSkeleton from "./QuestionInfoSkeleton"
 
+
 export const QuestionInfo = () => {
   const { id } = useParams()
     const navigate = useNavigate()
     const numId = Number(id)
     const result = useGetQuestionByIdQuery(numId) 
-    const handleSkillClick = (skillId: number) => {
-    navigate(`/questions?skills=${skillId}`)
+
+    const handleSkillClick = (value: number | string) => {
+    navigate(`/questions?${typeof value== 'string'?'keywords':'skills'}=${value}`)
   }
+
+ 
 
   if(result.isError) return 
   if(result.isLoading) return <QuestionInfoSkeleton></QuestionInfoSkeleton>
@@ -51,8 +55,8 @@ export const QuestionInfo = () => {
     <div className={styles.questionInfo__item}>
           <p className={styles.questionInfo__itemTitle}>Ключевые слова:</p>
           <div className={`${styles.questionInfo__itemOptions} ${styles.questionInfo__itemOptionsWrap}`}>
-            {result.data?.keywords.map((word)=>(
-              <p className={styles.questionInfo__keyWord}>#{word}</p>
+            {result.data?.keywords.map((word:string)=>(
+              <p onClick={() => handleSkillClick(word)} key={word} className={styles.questionInfo__keyWord}>#{word}</p>
             ))}
           </div>
         </div>

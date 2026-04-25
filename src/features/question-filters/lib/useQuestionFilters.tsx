@@ -5,24 +5,33 @@ export const useQuestionFilters = () => {
     const [searchParams,setSearchParams] = useSearchParams()
 
 
-    const updateFilters = useCallback((key: string, value: number | string | number[]) => {
+    const updateFilters = useCallback((key: string, value: number | string | number[] ) => {
       const newParams = new URLSearchParams(searchParams)
      
       let newValues:number[] | number =[]
 const current = searchParams.get(key)
-      if(typeof value=='string'){
-        
-        if (current==value) {
-       newParams.delete(key)
-      } 
-      else {
-        newParams.set(key,String(value))
-      }
-      setSearchParams(newParams, { replace: true })
-      return
-      }
+     if (typeof value === 'string') {
+    const currentValues = current ? current.split(',') : []
+    let newValues: string[]
+    
+    if (currentValues.includes(value)) {
+      newValues = currentValues.filter(v => v !== value)
+    } else {
+      newValues = [...currentValues, value]
+    }
+    
+    if (newValues.length > 0) {
+      newParams.set(key, newValues.join(','))
+    } else {
+      newParams.delete(key)
+    }
+    newParams.delete('page')
+    setSearchParams(newParams, { replace: true })
+    return
+  }
      
       if(Array.isArray(value)){
+    
         const currentValues = current ? current.split(',').map(v => Number(v)) : []
         const hasAll = value.every(v => currentValues.includes(v))
        console.log(hasAll)
@@ -102,20 +111,16 @@ setSearchParams(newParams, { replace: true })
  specialization:searchParams.get('specialization')?.split(',').map(v => Number(v)),
   skills:searchParams.get('skills')?.split(','),
  titleOrDescription : searchParams.get('titleOrDescription') ?? '',
- page:Number(searchParams.get('page')?.split(','))
+ page:Number(searchParams.get('page')?.split(',')),
+ keywords:searchParams.get('keywords')?.split(',').map(v => String(v)),
     }
   },[searchParams])
   
- const rate=searchParams.get('rate')?.split(',').map(v => Number(v))
-  const complexity=searchParams.get('complexity')?.split(',').map(v => Number(v))
-  const specialization=searchParams.get('specialization')?.split(',').map(v => Number(v))
-  const skills=searchParams.get('skills')?.split(',')
- const titleOrDescription = searchParams.get('titleOrDescription') ?? ''
- const page=Number(searchParams.get('page')?.split(','))
+ 
 
 
 
-  return {resetFilters,updateFilters,filters,rate,complexity,specialization,skills,titleOrDescription,page}
+  return {resetFilters,updateFilters,filters}
 }
 
 
