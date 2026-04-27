@@ -41,13 +41,14 @@ export const QuestionInfo = () => {
             </div>
           </div>
         </div>
-        <FilterSection title="Навыки">
+        <FilterSection classname={'filterSectionGrey'} title="Навыки">
       {result.data?.questionSkills.map((skill) => (
         <FilterChip
           key={skill.id}
           image={skill.imageSrc}
           title={skill.title}
           selected={true}
+          
           onClick={() => handleSkillClick(skill.id)}
         />
       ))}
@@ -61,7 +62,7 @@ export const QuestionInfo = () => {
           </div>
         </div>
 
-    <p className={styles.questionInfo__author} >Автор: <span className={styles.questionInfo__authorSpan}>Дмитрий Мусиенко</span> </p>
+    <p className={styles.questionInfo__author} >Автор: <span className={styles.questionInfo__authorSpan}>{result.data?.createdBy.username}</span> </p>
       </div>
     
       

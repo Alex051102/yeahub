@@ -23,6 +23,8 @@ export default function QuestionCard({id
       setOpenAnswer(prev=>!prev)
     }
 
+    
+
   }
 
   return (

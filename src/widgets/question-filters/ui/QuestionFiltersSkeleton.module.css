@@ -1,0 +1,16 @@
+.questionFilters{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.questionFiltersItem__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.questionFiltersItem{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -3,13 +3,13 @@
     gap: 0.5rem;
 }
 .pagination__itemActive{
-    background: #6A0BFF;
+    background: var(--color-primary-500);
 }
 .pagination__itemActive{
-    background: #6A0BFF;
+    background: var(--color-primary-500);
 }
 .pagination__number{
-    color: #474747;
+    color: var(--color-black-700);
     font-size: 0.875rem;
     padding: 0.125rem 0.375rem;
 }

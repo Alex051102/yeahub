@@ -1,14 +1,16 @@
 import React from 'react'
 import styles from './FilterSection.module.css'
+import { cn } from '@/shared/lib'
 interface FilterSectionProps{
     children:React.ReactNode,
     title:string,
-    count?:number
+    count?:number,
+    classname?:string
 }
-const FilterSection = ({children,title}:FilterSectionProps) => {
+const FilterSection = ({classname,children,title}:FilterSectionProps) => {
   return (
-    <section>
-        <p>{title}</p>
+    <section className={cn(styles.filterSection,classname)}>
+        <p className={styles.filterSection__title}>{title}</p>
         <div className={styles.filter}>{children}</div>
     </section>
   )

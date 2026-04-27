@@ -1,5 +1,14 @@
+.filterSection{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .filter{
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+.filterSectionGrey .filterSection__title{
+    color: #474747;
 }

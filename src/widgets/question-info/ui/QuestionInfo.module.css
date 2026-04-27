@@ -51,6 +51,7 @@
 .questionInfo__keyWord{
     font-size: 1rem;
     color: #6A0BFF;
+    cursor: pointer;
 }
 .questionInfo__author{
     color: #303030;

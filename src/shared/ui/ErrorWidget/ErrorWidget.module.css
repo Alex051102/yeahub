@@ -1,6 +1,6 @@
 .errorWidget__container{
     background-color: white;
-    border-radius: 30px;
+    border-radius: (--radius-xl);
     display: flex;
     justify-content: center;
     align-items: center;

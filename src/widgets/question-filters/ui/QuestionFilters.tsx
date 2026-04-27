@@ -6,15 +6,15 @@ import {SpecializationFilter} from '@/features/question-filters'
 import styles from './QuestionFilters.module.css'
 
 import SearchInput from '@/shared/ui/SearchInput/SearchInput'
-import { useGetSkillsQuery } from '@/entities/skills/api/skillsApi'
+
 import Skeleton from '@/shared/ui/Skeleton/Skeleton'
+import useFiltersData from '../lib/useFiltersData'
+import QuestionFiltersSkeleton from './QuestionFiltersSkeleton'
 
 export const QuestionFilters = () => {
     const {updateFilters,filters}=useQuestionFilters()
-    const {isLoading}=useGetSkillsQuery({
-      page:1,
-      limit:10
-    })
+    const {isLoading}=useFiltersData()
+    if(isLoading) return <QuestionFiltersSkeleton></QuestionFiltersSkeleton>
   return (
     <div className={styles.filters}>
          <div className={styles.filters__container}>

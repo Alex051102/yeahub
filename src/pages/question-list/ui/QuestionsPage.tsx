@@ -19,6 +19,7 @@ export default function QuestionsPage() {
         <div className={styles.questionsPage}>
 
              <QuestionsList onOpen={()=>setOpenFilters(true)}></QuestionsList>
+             <div className={styles.questionsPage}></div>
              {isMobile?<SideBar isOpen={isOpenFilters} onClose={()=>setOpenFilters(false)}><QuestionFilters></QuestionFilters></SideBar>:<QuestionFilters></QuestionFilters>}
 
             <Outlet></Outlet>

@@ -31,7 +31,7 @@ export const QuestionDetail = ({ onOpen }: QuestionDetailProps) => {
         <div className={styles.questionDetail__introContainer}>
           <div className={styles.questionDetail__intro}>
             <div className={styles.question__imageWrapper}>
-              {data?.imageSrc==null?<div className={styles.question__imageNull}></div>:<img className={styles.question__image} src={data?.imageSrc ?? ''} alt="" />}
+              <img className={styles.question__image} src={data?.imageSrc ?? ''} alt="" />
              
             </div>
             <div className={styles.question__introTextWrapper}>

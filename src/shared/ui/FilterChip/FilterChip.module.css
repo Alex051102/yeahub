@@ -1,5 +1,5 @@
 .filterChip{
-    border-radius: 12px;
+    border-radius:var(--radius-lg);
     border: 1px solid #BABABA;
     cursor: pointer;
 }
@@ -17,7 +17,7 @@
     align-items: center;
 }
 .filterChip__name{
-    
+    color:var(--color-black-800);
     font-size: 1rem;
-    font-weight: 500;
+    
 }

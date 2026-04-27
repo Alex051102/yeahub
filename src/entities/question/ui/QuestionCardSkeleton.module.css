@@ -2,7 +2,7 @@
 .skeleton {
   background: #f0f0f0;
   border-radius: 12px;
-  padding: 16px;
+  padding: var(--space-md);
   animation: pulse 1.2s ease-in-out infinite;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-sm);
 }
 
 .skeletonTitle {
@@ -30,7 +30,7 @@
 .skeletonStats {
   display: flex;
   gap: 16px;
-  margin-top: 12px;
+  margin-top: var(--space-sm);
 }
 
 .skeletonStat {

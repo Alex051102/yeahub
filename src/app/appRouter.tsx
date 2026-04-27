@@ -2,11 +2,16 @@
 
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout'
-import QuestionsPage from '../pages/questionList/QuestionsPage'
-import QuestionDeatail from '@/pages/questionDeatail/QuestionDeatailPage'
+
 import {ROUTES} from '@/shared/config/routes'
+import { lazy, Suspense } from 'react'
 
+import QuestionsPageSkeleton from '@/pages/question-list/ui/QuestionsPageSkeleton'
+import QuestionDeatailPageSkeleton from '@/pages/question-deatail/ui/QuestionDeatailPageSkeleton'
+import ErrorPage from '@/shared/ui/ErrorPage/ErrorPage'
 
+const QuestionsPage = lazy(() => import('@/pages/question-list'))
+const QuestionDetailPage = lazy(() => import('@/pages/question-deatail'))
 export const appRouter = createBrowserRouter([
 	{
 		path: '/',
@@ -24,7 +29,9 @@ export const appRouter = createBrowserRouter([
 			{
 				path: ROUTES.QUESTIONS,
 				element: (
-					<QuestionsPage/>
+					<Suspense fallback={<QuestionsPageSkeleton />}>  
+            			<QuestionsPage />
+          			</Suspense> 
 						
 					
 				)
@@ -33,12 +40,23 @@ export const appRouter = createBrowserRouter([
 			{
 				path: ROUTES.QUESTION_DETAIL,
 				element: (
-					<QuestionDeatail/>
+					<Suspense fallback={<QuestionDeatailPageSkeleton/>}>
+						<QuestionDetailPage/>
 						
+					</Suspense>
+					
 					
 				)
 				
 			},
+			{
+  path: '*',
+  element: (
+    
+      <ErrorPage errorMessage='Страница не найдена'></ErrorPage>
+    
+  ),
+}
 			
 			
 			

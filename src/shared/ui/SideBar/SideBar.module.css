@@ -11,10 +11,10 @@
    max-height: 955px;
 }
 .sideBar__container{
-     padding: 1.5rem;
+     padding: var(--space-lg);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap:  var(--space-lg);
 }
 .filters__exitBlock{
     display: none;

@@ -1,8 +1,7 @@
-
 import { Container } from '@/shared/ui/Container/Container'
 import { QuestionDetail } from '@/widgets/question-detail'
 import {QuestionInfo} from '@/widgets/question-info'
-import styles from './QuestionDeatail.module.css'
+import styles from './QuestionDeatailPage.module.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import caretLeft from '@/shared/assets/icons/CaretLeft.svg'
 import { useAdaptive } from '@/shared/lib'
@@ -10,7 +9,8 @@ import { useState } from 'react'
 import SideBar from '@/shared/ui/SideBar/SideBar'
 import { useGetQuestionByIdQuery } from '@/entities/question'
 import ErrorPage from '@/shared/ui/ErrorPage/ErrorPage'
-const QuestionDeatailPage = () => {
+import { InfoBlock } from '@/shared/ui/InfoBlock/InfoBlock'
+export default function QuestionDeatailPage ()  {
   const navigate=useNavigate()
   const [isOpenFilters,setOpenFilters]=useState(false)
     const {isMobile}=useAdaptive() 
@@ -32,7 +32,11 @@ const QuestionDeatailPage = () => {
               <div className={styles.questionDeatailPageMain}>
                 
                 <QuestionDetail onOpen={()=>setOpenFilters(true)}></QuestionDetail>
-                {isMobile?<SideBar isOpen={isOpenFilters} onClose={()=>setOpenFilters(false)}><QuestionInfo></QuestionInfo></SideBar>:<QuestionInfo></QuestionInfo>}
+                <div className={styles.questionDeatailPageMain__aside}>
+                  {isMobile?<SideBar isOpen={isOpenFilters} onClose={()=>setOpenFilters(false)}><QuestionInfo></QuestionInfo></SideBar>:<QuestionInfo></QuestionInfo>}
+                  <InfoBlock></InfoBlock>
+                </div>
+                
               
               </div>
         
@@ -45,4 +49,3 @@ const QuestionDeatailPage = () => {
   )
 }
 
-export default QuestionDeatailPage
