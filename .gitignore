@@ -1,24 +1,61 @@
-# Logs
-logs
+# Зависимости
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Сборка
+dist/
+dist-ssr/
+build/
+.next/
+out/
+
+# Переменные окружения
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Редакторы и IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Логи
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# Отладка
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Vercel
+.vercel/
+
+# Кэши
+.cache/
+.parcel-cache/
+.eslintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Покрытие тестов
+coverage/
+.nyc_output/
+
+# Временные файлы
+tmp/
+temp/
+*.tmp
