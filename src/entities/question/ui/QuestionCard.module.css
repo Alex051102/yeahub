@@ -64,29 +64,7 @@ border-radius: 0.5rem;
     display: flex;
     gap: 10px;
 }
-.questionsCard__stat{
-    background: #F8F8F8;
-    border-radius: var(--radius-md);
-    
-}
-.questionsCard__statContainer{
-    display: flex;
-    gap: 5px;
-    padding: 0.375rem 0.625rem;
-}
-.questionsCard__statNumber{
-    background: #6A0BFF;
-    border-radius: 4px;
 
-}
-.questionsCard__statNumber p{
-    padding: 0rem 0.4rem;
-    color: white;
-    font-size: 0.875rem;
-}
-.questionsCard__statText{
-    font-size: 0.875rem;
-}
 
 
 .questionsCard__navWrapper{

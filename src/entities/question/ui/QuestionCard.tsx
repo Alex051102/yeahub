@@ -3,6 +3,8 @@ import styles from './QuestionCard.module.css'
 import accordion from '@/shared/assets/icons/accordion.svg'
 import accordeon from '@/shared/assets/icons/questionAccordeon.svg'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import LevelStat from '@/shared/ui/LevelStat/LevelStat'
+import SafeHtml from '@/shared/ui/SafeHtml/SafeHtml'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 interface QuestionCardProps{
@@ -37,24 +39,10 @@ export default function QuestionCard({id
         <div className={styles.questionsCard__answer}>
             <div className={styles.questionsCard__info}>
               <div className={styles.questionsCard__stats}>
-                <div className={styles.questionsCard__stat}>
-                  <div className={styles.questionsCard__statContainer}>
-                    <p className={styles.questionsCard__statText}>Рейтинг: </p>
-                    <div className={styles.questionsCard__statNumber}>
-                      <p>{rate}</p>
-                    </div>
-                </div>
-                </div>
-                <div className={styles.questionsCard__stat}>
-                  <div className={styles.questionsCard__statContainer}>
-                    <p className={styles.questionsCard__statText}>Сложность: </p>
-                    <div className={styles.questionsCard__statNumber}>
-                      <p>{complexity}</p>
-                    </div>
-                </div>
-                </div>
+               <LevelStat name='Рейтинг' stat={rate}></LevelStat>
+                <LevelStat name='Сложность' stat={complexity}></LevelStat>
               </div>
-              <button  onClick={()=>setOpenDrawer(true)}><img id='questionsCard__accordeon' src={accordeon} alt="" /></button>
+              <button onClick={()=>setOpenDrawer(true)}><img id='questionsCard__accordeon' src={accordeon} alt="" /></button>
               <Drawer className={styles.questionsCard__navWrapper} onClose={()=>setOpenDrawer(false)} isOpen={isOpenDrawer}>
                 <nav className={styles.questionsCard__nav}>
                   <NavLink className={styles.questionsCard__navItemMobile} to={`${id}`}>Подробнее</NavLink>
@@ -65,7 +53,8 @@ export default function QuestionCard({id
               
             </div>
             <div className={styles.questionsCard__main}>
-              <div dangerouslySetInnerHTML={{ __html: shortAnswer }} />
+              <SafeHtml content={shortAnswer}></SafeHtml>
+              
             </div>
           </div>}
           

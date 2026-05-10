@@ -13,6 +13,8 @@ export default function QuestionsPage() {
 
   const [isOpenFilters,setOpenFilters]=useState(false)
   const {isMobile}=useAdaptive()
+  
+
   return (
     <div>
       <Container>

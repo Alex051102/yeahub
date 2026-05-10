@@ -9,7 +9,7 @@ interface FilterSectionProps{
 }
 const FilterSection = ({classname,children,title}:FilterSectionProps) => {
   return (
-    <section className={cn(styles.filterSection,classname)}>
+    <section className={cn(styles.filterSection,styles[classname ?? ''])}>
         <p className={styles.filterSection__title}>{title}</p>
         <div className={styles.filter}>{children}</div>
     </section>
