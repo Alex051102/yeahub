@@ -1,16 +1,15 @@
-
 :root {
-	font-family: 'Manrope', system-ui, sans-serif;
-	line-height: 1.5;
-    width: auto;
+  font-family: 'Manrope', system-ui, sans-serif;
+  line-height: 1.5;
+  width: auto;
 }
 
 body {
-	margin: 0;
-	color: var(--color-gray-900);
-	background-color: var(--color-gray-100);
-	font-size: 14px;
-	min-height: 100vh;
+  margin: 0;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-100);
+  font-size: 14px;
+  min-height: 100vh;
 }
 
 h1,
@@ -19,67 +18,67 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 700;
-	line-height: 1.2;
-	color: var(--color-gray-900);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-gray-900);
 }
 
 h1 {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 h3 {
-	font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 h4 {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 h5 {
-	font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 h6 {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 
 article p {
-	color: var(--color-gray-900);
+  color: var(--color-gray-900);
 }
 
 article ul,
 article ol {
-	margin-left: var(--space-lg);
-	margin-bottom: var(--space-md);
+  margin-left: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 article li {
-	margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
 }
 
 a {
-	color: var(--color-link);
-	text-decoration: none;
-	transition: color var(--transition-fast);
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 
-	&:hover {
-		color: var(--color-link-hover);
-	}
+  &:hover {
+    color: var(--color-link-hover);
+  }
 }
 
 main {
-	padding: var(--space-lg) 0 var(--space-xxl);
+  padding: var(--space-lg) 0 var(--space-xxl);
 }
 pre {
   overflow-x: auto;
   overflow-y: auto;
   white-space: pre;
-  word-break: keep-all; 
+  word-break: keep-all;
   word-wrap: normal;
   padding: 1rem;
   margin: 1rem 0;
@@ -89,7 +88,6 @@ pre {
   max-width: 100%;
 }
 
-
 code {
   white-space: normal;
   word-break: break-word;
@@ -98,7 +96,7 @@ code {
   border-radius: 3px;
 }
 @media (min-width: 768px) {
-	body {
-		font-size: 16px;
-	}
+  body {
+    font-size: 16px;
+  }
 }

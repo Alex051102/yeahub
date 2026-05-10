@@ -1,4 +1,3 @@
-
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './Button.module.css'
 
@@ -25,21 +24,15 @@ export const Button = ({
     styles[`button--${variant}`],
     styles[`button--${size}`],
     fullWidth && styles['button--full'],
-    
+
     disabled && styles['button--disabled'],
-    className
+    className,
   ]
     .filter(Boolean)
     .join(' ')
 
   return (
-    <button
-      type={type}
-      className={classes}
-      disabled={disabled}
-      {...props}
-    >
-      
+    <button type={type} className={classes} disabled={disabled} {...props}>
       {children}
     </button>
   )

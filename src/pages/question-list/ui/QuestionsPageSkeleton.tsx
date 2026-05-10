@@ -6,13 +6,11 @@ import styles from './QuestionPage.module.css'
 const QuestionsPageSkeleton = () => {
   return (
     <Container>
-        <div className={styles.questionsPage}>
-
-             <QuestionsListSkeleton></QuestionsListSkeleton>
-             <QuestionFiltersSkeleton></QuestionFiltersSkeleton>
-        </div>
-   
-      </Container> 
+      <div className={styles.questionsPage}>
+        <QuestionsListSkeleton></QuestionsListSkeleton>
+        <QuestionFiltersSkeleton></QuestionFiltersSkeleton>
+      </div>
+    </Container>
   )
 }
 

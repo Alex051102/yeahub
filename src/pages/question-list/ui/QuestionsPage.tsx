@@ -1,6 +1,5 @@
-
 import { Container } from '@/shared/ui/Container/Container'
-import {QuestionFilters} from '@/widgets/question-filters/ui/QuestionFilters'
+import { QuestionFilters } from '@/widgets/question-filters/ui/QuestionFilters'
 import { QuestionsList } from '@/widgets/questions-list/ui/QuestionsList'
 import styles from './QuestionPage.module.css'
 import { useState } from 'react'
@@ -10,25 +9,26 @@ import { useAdaptive } from '@/shared/lib'
 import { Outlet } from 'react-router-dom'
 
 export default function QuestionsPage() {
-
-  const [isOpenFilters,setOpenFilters]=useState(false)
-  const {isMobile}=useAdaptive()
-  
+  const [isOpenFilters, setOpenFilters] = useState(false)
+  const { isMobile } = useAdaptive()
 
   return (
     <div>
       <Container>
         <div className={styles.questionsPage}>
+          <QuestionsList onOpen={() => setOpenFilters(true)}></QuestionsList>
 
-             <QuestionsList onOpen={()=>setOpenFilters(true)}></QuestionsList>
-            
-             {isMobile?<SideBar isOpen={isOpenFilters} onClose={()=>setOpenFilters(false)}><QuestionFilters></QuestionFilters></SideBar>:<QuestionFilters></QuestionFilters>}
+          {isMobile ? (
+            <SideBar isOpen={isOpenFilters} onClose={() => setOpenFilters(false)}>
+              <QuestionFilters></QuestionFilters>
+            </SideBar>
+          ) : (
+            <QuestionFilters></QuestionFilters>
+          )}
 
-            <Outlet></Outlet>
+          <Outlet></Outlet>
         </div>
-   
       </Container>
-     
     </div>
   )
 }

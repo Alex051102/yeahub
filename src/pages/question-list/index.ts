@@ -1,1 +1,1 @@
-export { default } from './ui/QuestionsPage';
+export { default } from './ui/QuestionsPage'

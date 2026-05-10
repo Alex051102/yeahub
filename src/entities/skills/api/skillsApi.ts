@@ -1,5 +1,5 @@
-import { baseApi } from '../../../app/store/baseApi';
-import type { GetSkillsParamas, SkillsResponse } from '../model/types';
+import { baseApi } from '../../../app/store/baseApi'
+import type { GetSkillsParamas, SkillsResponse } from '../model/types'
 
 export const skillsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -20,7 +20,7 @@ export const skillsApi = baseApi.injectEndpoints({
           total: response.total || 0,
           page: response.page || 1,
           limit: response.limit || 10,
-        };
+        }
       },
 
       providesTags: (result) => {
@@ -28,12 +28,12 @@ export const skillsApi = baseApi.injectEndpoints({
           return [
             ...result.data.map(({ id }) => ({ type: 'Skill' as const, id })),
             { type: 'Skill', id: 'LIST' },
-          ];
+          ]
         }
-        return [{ type: 'Skill', id: 'LIST' }];
+        return [{ type: 'Skill', id: 'LIST' }]
       },
     }),
   }),
-});
+})
 
-export const { useGetSkillsQuery } = skillsApi;
+export const { useGetSkillsQuery } = skillsApi

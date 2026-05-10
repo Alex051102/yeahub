@@ -6,4 +6,4 @@ export const ROUTES = {
   SKILLS: '/skills',
   LOGIN: '/login',
   REGISTER: '/register',
-};
+}

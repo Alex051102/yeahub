@@ -1,9 +1,9 @@
-.logo{
-    display: flex;
-    gap: 0.5rem;
+.logo {
+  display: flex;
+  gap: 0.5rem;
 }
-@media(width<768px){
-    .logo__text{
-        display: none;
-    }
+@media (width<768px) {
+  .logo__text {
+    display: none;
+  }
 }

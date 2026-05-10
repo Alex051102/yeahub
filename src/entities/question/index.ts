@@ -1,7 +1,3 @@
-export type { Question, QuestionsListResponse, GetQuestionsParams } from './model/types';
+export type { Question, QuestionsListResponse, GetQuestionsParams } from './model/types'
 
-export {
-  questionApi,
-  useGetPublicQuestionsQuery,
-  useGetQuestionByIdQuery,
-} from './api/questionApi';
+export { questionApi, useGetPublicQuestionsQuery, useGetQuestionByIdQuery } from './api/questionApi'

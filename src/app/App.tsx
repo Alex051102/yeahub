@@ -1,4 +1,3 @@
-
 import './App.css'
 import { RouterProvider } from 'react-router-dom'
 import { appRouter } from './appRouter'
@@ -7,14 +6,13 @@ import { store } from './store'
 import { ErrorBoundary } from '@/shared/ui/ErrorBoundary/ErrorBoundary'
 
 function App() {
-  
   return (
     <>
-    <ErrorBoundary>
-      <Provider store={store}>
-        <RouterProvider router={appRouter}></RouterProvider>
-      </Provider>
-     </ErrorBoundary>
+      <ErrorBoundary>
+        <Provider store={store}>
+          <RouterProvider router={appRouter}></RouterProvider>
+        </Provider>
+      </ErrorBoundary>
     </>
   )
 }

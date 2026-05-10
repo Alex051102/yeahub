@@ -1,1 +1,1 @@
-export { default } from './ui/QuestionDeatailPage';
+export { default } from './ui/QuestionDeatailPage'

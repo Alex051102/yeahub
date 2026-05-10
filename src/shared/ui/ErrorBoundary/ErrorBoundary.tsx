@@ -1,4 +1,3 @@
-
 import { Component } from 'react'
 import type { ErrorInfo, ReactNode } from 'react'
 interface ErrorBoundaryProps {
@@ -29,14 +28,14 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
   render() {
     if (this.state.hasError) {
-      return this.props.fallback || (
-        <div className="error-fallback">
-          <h2>Что-то пошло не так</h2>
-          <p>{this.state.error?.message}</p>
-          <button onClick={() => window.location.reload()}>
-            Перезагрузить
-          </button>
-        </div>
+      return (
+        this.props.fallback || (
+          <div className="error-fallback">
+            <h2>Что-то пошло не так</h2>
+            <p>{this.state.error?.message}</p>
+            <button onClick={() => window.location.reload()}>Перезагрузить</button>
+          </div>
+        )
       )
     }
 

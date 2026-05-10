@@ -1,25 +1,21 @@
-.filters{
-   background: #FFFFFF;
-   border-radius: 1.5rem;
-   position: sticky;
-   top: 20px;
+.filters {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  position: sticky;
+  top: 20px;
 }
-.filters__container{
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.filters__container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
-.filters__exitBlock{
-    display: none;
-}
-
-
-@media(max-width:1024px){
-   .filters__container{
-    padding:0;
-   
+.filters__exitBlock {
+  display: none;
 }
 
+@media (max-width: 1024px) {
+  .filters__container {
+    padding: 0;
+  }
 }
-

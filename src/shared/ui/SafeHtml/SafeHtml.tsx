@@ -1,11 +1,11 @@
 import styles from './SafeHtml.module.css'
-interface SafeHtmlProps{
-    className?:string,
-    content:string | undefined
+interface SafeHtmlProps {
+  className?: string
+  content: string | undefined
 }
-const SafeHtml = ({className,content}:SafeHtmlProps) => {
+const SafeHtml = ({ className, content }: SafeHtmlProps) => {
   return (
-    <div 
+    <div
       className={`${styles.htmlContent} ${className || ''}`}
       dangerouslySetInnerHTML={{ __html: content ?? '' }}
     />

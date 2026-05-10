@@ -1,18 +1,17 @@
-
 import { Outlet } from 'react-router-dom'
 
-import {Header} from '@/widgets/header'
+import { Header } from '@/widgets/header'
 
 export const MainLayout = () => {
-	return (
-		<div >
-			<Header></Header>
+  return (
+    <div>
+      <Header></Header>
 
-			<main >
-				<Outlet />
-			</main>
+      <main>
+        <Outlet />
+      </main>
 
-			<p>footer</p>
-		</div>
-	)
+      <p>footer</p>
+    </div>
+  )
 }

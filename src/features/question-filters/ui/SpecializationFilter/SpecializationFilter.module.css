@@ -1,10 +1,10 @@
-.filters__data{
-    display: flex;
-   flex-wrap: wrap;
-   gap: 0.5rem;
+.filters__data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
-.filters__button{
-    color: var(--color-purple-800);
-    text-decoration: underline;
-    font-size: 0.875rem;
+.filters__button {
+  color: var(--color-purple-800);
+  text-decoration: underline;
+  font-size: 0.875rem;
 }

@@ -1,14 +1,14 @@
-.filterSection{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.filter{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.filterTitleGrey .filterSection__title{
-    color: #474747;
+.filterTitleGrey .filterSection__title {
+  color: #474747;
 }

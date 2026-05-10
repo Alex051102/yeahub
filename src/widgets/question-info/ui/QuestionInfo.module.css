@@ -1,69 +1,68 @@
-.questionInfo__container{
-    background-color: white;
-    border-radius: 1.5rem;
-    max-height: 403px;
+.questionInfo__container {
+  background-color: white;
+  border-radius: 1.5rem;
+  max-height: 403px;
 }
-.questionInfo{
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap:1rem ;
+.questionInfo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.questionInfo__item{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.questionInfo__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.questionInfo__itemTitle{
-    color: #474747;
+.questionInfo__itemTitle {
+  color: #474747;
 }
-.questionInfo__itemOptions{
-    display: flex;
-   
-    gap: 16x;
+.questionInfo__itemOptions {
+  display: flex;
+
+  gap: 16x;
 }
-.questionInfo__itemOptionsWrap{
-    flex-wrap: wrap;
-    gap: 8px;
+.questionInfo__itemOptionsWrap {
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.questionInfo__level{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-     background-color: #F8F8F8;
-    border-radius:8px ;
-    padding: 6px 10px;
+.questionInfo__level {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 6px 10px;
 }
 
-.questionInfo__levelStatWrapper{
-    background-color: #6A0BFF;
-    width: 23px;
-    height: 21px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    border-radius: 4px;
+.questionInfo__levelStatWrapper {
+  background-color: #6a0bff;
+  width: 23px;
+  height: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
 }
-.questionInfo__levelStat{
-    font-size: 14px;
-    color: #FFFFFF;
+.questionInfo__levelStat {
+  font-size: 14px;
+  color: #ffffff;
 }
-.questionInfo__keyWord{
-    font-size: 1rem;
-    color: #6A0BFF;
-    cursor: pointer;
+.questionInfo__keyWord {
+  font-size: 1rem;
+  color: #6a0bff;
+  cursor: pointer;
 }
-.questionInfo__author{
-    color: #303030;
-    font-size: 14px;
+.questionInfo__author {
+  color: #303030;
+  font-size: 14px;
 }
-.questionInfo__authorSpan{
-    color: #6A0BFF;
+.questionInfo__authorSpan {
+  color: #6a0bff;
 }
 
-@media(max-width:1024px){
-    .questionInfo{
+@media (max-width: 1024px) {
+  .questionInfo {
     padding: 0;
-  
-}
+  }
 }

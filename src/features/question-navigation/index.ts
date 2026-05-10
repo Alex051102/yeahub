@@ -1,1 +1,1 @@
-export { QuestionNavigation } from './ui/QuestionNavigation';
+export { QuestionNavigation } from './ui/QuestionNavigation'

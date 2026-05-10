@@ -10,11 +10,5 @@ export const QuestionPagination = ({ currentPage, pages }: PaginationProps) => {
   const { getPages, updatePages } = usePagination(currentPage, pages)
   const pagesGenerate = getPages()
 
-  return (
-    <Pagination
-      page={currentPage}
-      pagesGenerate={pagesGenerate}
-      updatePages={updatePages}  
-    />
-  )
+  return <Pagination page={currentPage} pagesGenerate={pagesGenerate} updatePages={updatePages} />
 }

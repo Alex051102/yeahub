@@ -1,54 +1,54 @@
 export interface Question {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  code?: string | null;
-  imageSrc?: string | null;
-  keywords: string[];
-  longAnswer: string;
-  shortAnswer: string;
-  status: string;
-  rate: number;
-  complexity: number;
-  createdAt: string;
-  updatedAt: string;
+  id: number
+  title: string
+  slug: string
+  description: string
+  code?: string | null
+  imageSrc?: string | null
+  keywords: string[]
+  longAnswer: string
+  shortAnswer: string
+  status: string
+  rate: number
+  complexity: number
+  createdAt: string
+  updatedAt: string
   questionSpecializations: Array<{
-    id: number;
-    title: string;
-    slug: string;
-    description: string;
-    imageSrc?: string | null;
-  }>;
+    id: number
+    title: string
+    slug: string
+    description: string
+    imageSrc?: string | null
+  }>
   questionSkills: Array<{
-    id: number;
-    title: string;
-    description: string;
-    imageSrc?: string;
-  }>;
+    id: number
+    title: string
+    description: string
+    imageSrc?: string
+  }>
   createdBy: {
-    id: string;
-    username: string;
-  };
+    id: string
+    username: string
+  }
 }
 
 export interface QuestionsListResponse {
-  data: Question[];
-  page: number;
-  limit: number;
-  total: number;
+  data: Question[]
+  page: number
+  limit: number
+  total: number
 }
 
 export interface GetQuestionsParams {
-  page?: number;
-  limit?: number;
-  title?: string;
-  titleOrDescription?: string;
-  keywords?: string[];
-  skills?: string[];
-  specializationId?: number;
-  complexity?: number[];
-  rate?: number[];
-  orderBy?: string;
-  order?: string;
+  page?: number
+  limit?: number
+  title?: string
+  titleOrDescription?: string
+  keywords?: string[]
+  skills?: string[]
+  specializationId?: number
+  complexity?: number[]
+  rate?: number[]
+  orderBy?: string
+  order?: string
 }

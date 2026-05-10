@@ -1,23 +1,21 @@
-.stat{
-    background: #F8F8F8;
-    border-radius: var(--radius-md);
-    
+.stat {
+  background: #f8f8f8;
+  border-radius: var(--radius-md);
 }
-.statContainer{
-    display: flex;
-    gap: 5px;
-    padding: 0.375rem 0.625rem;
+.statContainer {
+  display: flex;
+  gap: 5px;
+  padding: 0.375rem 0.625rem;
 }
-.statNumber{
-    background: #6A0BFF;
-    border-radius: 4px;
-
+.statNumber {
+  background: #6a0bff;
+  border-radius: 4px;
 }
-.statNumber p{
-    padding: 0rem 0.4rem;
-    color: white;
-    font-size: 0.875rem;
+.statNumber p {
+  padding: 0rem 0.4rem;
+  color: white;
+  font-size: 0.875rem;
 }
-.statText{
-    font-size: 0.875rem;
+.statText {
+  font-size: 0.875rem;
 }

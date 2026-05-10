@@ -1,17 +1,12 @@
-.questionsPage{
-    display: grid;
-    grid-template-columns: auto 392px;
-    gap: 20px;
-    align-items: start;
-
+.questionsPage {
+  display: grid;
+  grid-template-columns: auto 392px;
+  gap: 20px;
+  align-items: start;
 }
 
-@media(max-width:1024px){
-    .questionsPage{
-    
+@media (max-width: 1024px) {
+  .questionsPage {
     grid-template-columns: auto;
-   
-
-}
-
+  }
 }

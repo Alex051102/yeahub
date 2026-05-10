@@ -1,5 +1,5 @@
-import { baseApi } from '../../../app/store/baseApi';
-import type { Question, QuestionsListResponse, GetQuestionsParams } from '../model/types';
+import { baseApi } from '../../../app/store/baseApi'
+import type { Question, QuestionsListResponse, GetQuestionsParams } from '../model/types'
 
 export const questionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -27,7 +27,7 @@ export const questionApi = baseApi.injectEndpoints({
           total: response.total || 0,
           page: response.page || 1,
           limit: response.limit || 10,
-        };
+        }
       },
 
       providesTags: (result) => {
@@ -35,9 +35,9 @@ export const questionApi = baseApi.injectEndpoints({
           return [
             ...result.data.map(({ id }) => ({ type: 'Question' as const, id })),
             { type: 'Question', id: 'LIST' },
-          ];
+          ]
         }
-        return [{ type: 'Question', id: 'LIST' }];
+        return [{ type: 'Question', id: 'LIST' }]
       },
     }),
 
@@ -46,6 +46,6 @@ export const questionApi = baseApi.injectEndpoints({
       providesTags: (_result, _error, id) => [{ type: 'Question', id }],
     }),
   }),
-});
+})
 
-export const { useGetPublicQuestionsQuery, useGetQuestionByIdQuery } = questionApi;
+export const { useGetPublicQuestionsQuery, useGetQuestionByIdQuery } = questionApi

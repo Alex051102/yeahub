@@ -1,1 +1,1 @@
-export { QuestionFilters } from './ui/QuestionFilters';
+export { QuestionFilters } from './ui/QuestionFilters'

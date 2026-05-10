@@ -1,28 +1,28 @@
-.errorWidget__container{
-    background-color: white;
-    border-radius: (--radius-xl);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
+.errorWidget__container {
+  background-color: white;
+  border-radius: (--radius-xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
 }
-.errorWidget{
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.errorWidget {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.errorWidget__message{
-    text-align: center;
+.errorWidget__message {
+  text-align: center;
 }
-.errorWidget__nav{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
+.errorWidget__nav {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
 }
-.errorWidget__button{
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: white;
-    border: 1px solid grey;
+.errorWidget__button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid grey;
 }

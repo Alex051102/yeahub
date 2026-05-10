@@ -1,22 +1,22 @@
-.questionDetail__navContainer{
-    background-color: white;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.questionDetail__navContainer {
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.questionDetail__nav{
-    display: flex;
-    gap: 8px;
-    padding: 1rem;
+.questionDetail__nav {
+  display: flex;
+  gap: 8px;
+  padding: 1rem;
 }
 
-.questionDetail__navButton{
-    padding: 13px;
-     display: flex;
-    gap: 0.5rem;
-    align-items: center;
+.questionDetail__navButton {
+  padding: 13px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
-.questionDetail__navText{
-    font-weight: 600;
+.questionDetail__navText {
+  font-weight: 600;
 }

@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@/shared/assets/icons/ArrowRightIcon'
 interface PaginationProps {
   page: number
   pagesGenerate: (string | number)[]
-  updatePages: (page: number) => void  
+  updatePages: (page: number) => void
 }
 
 const Pagination = ({ page, updatePages, pagesGenerate }: PaginationProps) => {
@@ -22,7 +22,11 @@ const Pagination = ({ page, updatePages, pagesGenerate }: PaginationProps) => {
           className={`${styles.pagination__item} ${page === p ? styles.pagination__itemActive : ''}`}
           disabled={p === '...'}
         >
-          <p className={`${styles.pagination__number} ${page === p ? styles.pagination__numberActive : ''}`}>{p}</p>
+          <p
+            className={`${styles.pagination__number} ${page === p ? styles.pagination__numberActive : ''}`}
+          >
+            {p}
+          </p>
         </button>
       ))}
 

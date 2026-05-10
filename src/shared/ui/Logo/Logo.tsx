@@ -6,25 +6,14 @@ import { Link } from 'react-router-dom'
 import styles from './Logo.module.css'
 
 interface LogoProps {
-	className?: string
+  className?: string
 }
 
 export const Logo = ({ className }: LogoProps) => {
-	return (
-		<Link
-			to={ROUTES.QUESTIONS}
-			className={cn(styles.logo, className)}
-			aria-label="На главную"
-		>
-			<img
-				src={logoIcon}
-				alt=""
-			/>
-			<img
-            className={styles.logo__text}
-				src={logoText}
-				alt="YeaHub"
-			/>
-		</Link>
-	)
+  return (
+    <Link to={ROUTES.QUESTIONS} className={cn(styles.logo, className)} aria-label="На главную">
+      <img src={logoIcon} alt="" />
+      <img className={styles.logo__text} src={logoText} alt="YeaHub" />
+    </Link>
+  )
 }

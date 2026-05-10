@@ -5,24 +5,20 @@ import { SearchIcon } from '@/shared/assets/icons/SearchIcon'
 interface SearchInputProps {
   placeholder?: string
   delay?: number
-  update?: ( value: string) => void
+  update?: (value: string) => void
 }
 
-const SearchInput = ({ 
-  placeholder = 'Поиск...', 
-  delay = 500, 
-  update 
-}: SearchInputProps) => {
+const SearchInput = ({ placeholder = 'Поиск...', delay = 500, update }: SearchInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  
+
   const handleInput = () => {
     const value = inputRef.current?.value || ''
-    
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
-    
+
     timeoutRef.current = setTimeout(() => {
       if (update) {
         update(value)

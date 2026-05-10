@@ -1,1 +1,1 @@
-export {QuestionDetail} from './ui/QuestionDetail'
+export { QuestionDetail } from './ui/QuestionDetail'
